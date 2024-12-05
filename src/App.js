@@ -13,15 +13,33 @@ function App() {
 	const [golds, setGolds] = useState([{name: "냉면", cost: 8000},
 			{name: "커피", cost: 4300}]);
 	
+	// 알림 띄우기
+	const [notificationAdd, setNotificationAdd] = useState("");
+	const [notificationDel, setNotificationDel] = useState("");
+	const [notificationEdit, setNotificationEdit] = useState("");
+	const [notificationDelAll, setNotificationDelAll] = useState("");
+
+	
 	// 넣기
 	const addGold = (newGold) => {
 		setGolds((prevGolds) => [...prevGolds, newGold]);
+		
+		setNotificationAdd('새로운 아이템을 추가했어요')
+
+		setTimeout(() => {
+			setNotificationAdd('');
+		}, 3000);
 	}
 	
 
 	// 지우기
 	const onDelete = (index) => {
 		setGolds((prevGolds) => prevGolds.filter((_, i)=>i !==index));
+		setNotificationDel('아이템을 삭제했어요')
+		
+		setTimeout(() => {
+			setNotificationDel('');
+		}, 3000);
 	}
 
 	const [isEditing, setIsEditing] = useState(null);
@@ -43,16 +61,33 @@ function App() {
 		setIsEditing(null);
 		setEditName('');
     setEditCost('');
+		setNotificationEdit('아이템을 수정 했어요')
+
+		setTimeout(() => {
+			setNotificationEdit('');
+		}, 3000);
 	}
 
 	const onDeleteAll = () => {
 		setGolds([])
+		setNotificationDelAll('아이템을 모두 삭제했어요')
+
+		setTimeout(() => {
+			setNotificationDelAll('');
+		}, 3000);
 	}
+
+
 
   return (
     <div className="App">
       <header className="App-header">
-				<Header />
+				<Header 
+					notificationAdd={notificationAdd}
+					notificationDel={notificationDel}
+					notificationEdit={notificationEdit}
+					notificationDelAll={notificationDelAll}
+				/>
       </header>
 			<div className='App-container'>
 				<Form 
