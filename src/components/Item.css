@@ -1,0 +1,40 @@
+.items {
+	padding: 5px 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border: 1px solid #5582AA;
+	border-radius: 2px;
+	font-weight: 600;
+	background-color: white;
+}
+.item-name {
+	flex: 50%;
+}
+
+.item-cost {
+	margin-right: 0;
+	font-weight: 400;
+	flex: 38%;
+	text-align: right;
+	padding-right: 250px;
+}
+
+.item-btns {
+	display: flex;
+	column-gap: 15px;
+	padding: 0;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.item-btn {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+}
+
