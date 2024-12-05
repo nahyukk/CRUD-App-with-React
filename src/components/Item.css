@@ -7,7 +7,17 @@
 	border-radius: 2px;
 	font-weight: 600;
 	background-color: white;
+	
+	transition: transform 0.3s ease;
+	transition: box-shadow 0.3 ease;
+	transform: translateZ(0);
 }
+
+.items:hover {
+	transform: scale(1.03);
+	box-shadow: 2px 2px 5px rgba(85, 130,170, 0.4);
+}
+
 .item-name {
 	flex: 50%;
 }

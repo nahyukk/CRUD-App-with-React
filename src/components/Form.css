@@ -45,9 +45,16 @@
 	border-radius: 2px;
 	cursor: pointer;
 	font-size: 16px;
+	box-shadow: 2px 2px 5px rgba(27, 56, 82, 0.2);
+	transition: transform 0.2s ease;
+	transform: translateZ(0);
 }
 
-
+.form-btn:hover {
+	transform: scale(1.02);
+	
+}
 .form-btn:active {
 	scale: 0.95;
 }
+
