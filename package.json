@@ -1,7 +1,7 @@
 {
   "name": "budget-calculator",
   "version": "0.1.0",
-	"homepage": "http://nahyukk.githun.io",
+	"homepage": "http://nahyukk.githun.io/CRUD-App-with-React/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
