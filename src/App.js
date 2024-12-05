@@ -21,14 +21,15 @@ function App() {
 	const [notificationInvalidCost, setNotificationInvalidCost] = useState('');
 
 	const validateCost = (cost) => {
-		if (!/^\d+$/.test(cost)) {
-			setNotificationInvalidCost('숫자를 입력하세요.');
+		if (cost === "" || /^\d+$/.test(cost)) {
+			return true;
+		} else {
+			setNotificationInvalidCost("숫자를 입력하세요.");
 			setTimeout(() => {
-				setNotificationInvalidCost(''); 
+				setNotificationInvalidCost("");
 			}, 3000);
 			return false;
 		}
-		return true;
 	};
 	
 	
@@ -115,6 +116,7 @@ function App() {
 					setEditCost={setEditCost}
 					onSave={onSave}
 					validateCost={validateCost}
+					setNotificationInvalidCost={setNotificationInvalidCost}
 				/>
 				<List 
 					golds={golds}

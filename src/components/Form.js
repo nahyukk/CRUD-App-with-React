@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
 import "./Form.css"
 
-const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost, onSave, validateCost }) => {
+const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost, onSave, validateCost, setNotificationInvalidCost }) => {
 	const [name, setName] = useState('');
 	const [cost, setCost] = useState('');
 	const handleClick = () => {
-		if (name && cost) {
-			addGold( {name, cost: parseInt(cost, 10) });
-			setName("");
-			setCost("");
-		} else {
-			console.log("다 입력해라");
+		if (!name || !cost) {
+			setNotificationInvalidCost('모든 값을 입력하세요.');
+			setTimeout(() => {
+				setNotificationInvalidCost('');
+			}, 3000);
+			return;
 		}
+
+		if (!validateCost(cost)) {
+			return;
+		}
+
+		const validConst = cost === "" ? 0 : parseInt(cost, 10)
+		addGold({ name, cost: validConst });
+		setName('');
+		setCost('');
 	}
 
 	return (
@@ -29,7 +38,7 @@ const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost
 				</div>
 				<div className='form-cost'>
 					<p>비용</p>
-					<input className='form-input-box'
+					<input type='text' className='form-input-box'
 					value={isEditing !== null ? editCost : cost}
 					onChange={(e) => {if(!validateCost(e.target.value)) {return;} (isEditing !== null ? setEditCost(e.target.value) : setCost(e.target.value))}
 				}/>
