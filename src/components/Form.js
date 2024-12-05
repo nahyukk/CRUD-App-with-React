@@ -48,11 +48,11 @@ const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost
 				{isEditing !== null ? 
 					(<button className='form-btn' onClick={() => onSave(isEditing)}>
 						수정
-						<img src='/send.svg' alt='send' />	
+						<img src={`${process.env.PUBLIC_URL}/send.svg`} alt='send' />	
 					</button> ) : (
 					<button className='form-btn' onClick={handleClick}>
 						입력
-						<img src='/send.svg' alt='send' />	
+						<img src={`${process.env.PUBLIC_URL}/send.svg`} alt='send' />	
 					</button> )
 				}
 				

@@ -9,10 +9,10 @@ const item = ({name, cost, onEdit, onDelete}) => {
 			<p className='item-cost'>₩ {cost}</p>
 			<div className='item-btns'>
 				<button className="item-btn" onClick={onEdit}>
-					<img src="/edit.svg" alt='edit'/>
+					<img src={`${process.env.PUBLIC_URL}/edit.svg`} alt='edit'/>
 				</button>
 				<button className="item-btn" onClick={onDelete}>
-					<img src='/delete.svg' alt='delete' />
+					<img src={`${process.env.PUBLIC_URL}/delete.svg`} alt='delete' />
 				</button>
 			</div>
 		</div>

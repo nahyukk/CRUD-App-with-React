@@ -24,7 +24,7 @@ const List = ({ golds, onEdit, onDelete, onDeleteAll }) => {
 			<div>
 				<button className='del-all' onClick={onDeleteAll}>
 					싹 지우기
-					<img src='/delete-all.svg' alt='delAll' />
+					<img src={`${process.env.PUBLIC_URL}/delete-all.svg`} alt='delAll' />
 				</button>
 			</div>
 		</>
