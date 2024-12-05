@@ -1,8 +1,9 @@
 # CRUD-App-with-React
 ## Budget Calculator
 
-###결과물
-[결과물](https://nahyukk.github.io/CRUD-App-with-React/) 구경하기 <br><br>
+### 결과물
+
+[배포 결과물](https://nahyukk.github.io/CRUD-App-with-React/) 구경하기 <br><br>
 
 ![video](https://github.com/user-attachments/assets/7792b245-2f99-494c-befa-e81380b60f5e)
 
