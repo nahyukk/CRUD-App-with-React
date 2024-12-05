@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Form.css"
 
-const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost, onSave }) => {
+const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost, onSave, validateCost }) => {
 	const [name, setName] = useState('');
 	const [cost, setCost] = useState('');
 	const handleClick = () => {
@@ -31,8 +31,8 @@ const Form = ({ addGold, isEditing, editName, editCost, setEditName, setEditCost
 					<p>비용</p>
 					<input className='form-input-box'
 					value={isEditing !== null ? editCost : cost}
-					onChange={(e) => (isEditing !== null ? setEditCost(e.target.value) : setCost(e.target.value))}
-					/>
+					onChange={(e) => {if(!validateCost(e.target.value)) {return;} (isEditing !== null ? setEditCost(e.target.value) : setCost(e.target.value))}
+				}/>
 				</div>
 			</div>
 			<div >

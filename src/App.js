@@ -19,9 +19,23 @@ function App() {
 	const [notificationEdit, setNotificationEdit] = useState("");
 	const [notificationDelAll, setNotificationDelAll] = useState("");
 
+	const [notificationInvalidCost, setNotificationInvalidCost] = useState('');
+
+	const validateCost = (cost) => {
+		if (!/^\d+$/.test(cost)) {
+			setNotificationInvalidCost('숫자를 입력하세요.');
+			setTimeout(() => {
+				setNotificationInvalidCost(''); 
+			}, 3000);
+			return false;
+		}
+		return true;
+	};
+	
 	
 	// 넣기
 	const addGold = (newGold) => {
+		
 		setGolds((prevGolds) => [...prevGolds, newGold]);
 
 		setNotificationAdd('새로운 아이템을 추가했어요')
@@ -54,6 +68,8 @@ function App() {
 	}
 
 	const onSave = (index) => {
+		if (!validateCost(editCost)) return;
+
 		const updatedGolds = golds.map((gold, i) => 
 		i === index ? {name: editName, cost:Number(editCost)} : gold);
 
@@ -87,6 +103,7 @@ function App() {
 					notificationDel={notificationDel}
 					notificationEdit={notificationEdit}
 					notificationDelAll={notificationDelAll}
+					notificationInvalidCost={notificationInvalidCost}
 				/>
       </header>
 			<div className='App-container'>
@@ -98,6 +115,7 @@ function App() {
 					setEditName={setEditName}
 					setEditCost={setEditCost}
 					onSave={onSave}
+					validateCost={validateCost}
 				/>
 				<List 
 					golds={golds}

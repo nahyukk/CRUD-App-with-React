@@ -30,7 +30,7 @@
   z-index: 1000;
 }
 
-.notification-del, .notification-delall {
+.notification-del, .notification-delall, .notification-invalid {
 	position: fixed;
 	width: 200px;
 	text-align: center;
