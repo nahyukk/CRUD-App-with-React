@@ -10,8 +10,7 @@ function App() {
 	// 	{name: "냉면", cost: 8000},
 	// 	{name: "커피", cost: 4300}
 	// ]
-	const [golds, setGolds] = useState([{name: "냉면", cost: 8000},
-			{name: "커피", cost: 4300}]);
+	const [golds, setGolds] = useState([]);
 	
 	// 알림 띄우기
 	const [notificationAdd, setNotificationAdd] = useState("");
