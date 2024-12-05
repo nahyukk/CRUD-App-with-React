@@ -23,7 +23,7 @@ function App() {
 	// 넣기
 	const addGold = (newGold) => {
 		setGolds((prevGolds) => [...prevGolds, newGold]);
-		
+
 		setNotificationAdd('새로운 아이템을 추가했어요')
 
 		setTimeout(() => {
@@ -55,7 +55,7 @@ function App() {
 
 	const onSave = (index) => {
 		const updatedGolds = golds.map((gold, i) => 
-		i === index ? {name: editName, cost: editCost} : gold);
+		i === index ? {name: editName, cost:Number(editCost)} : gold);
 
 		setGolds(updatedGolds);
 		setIsEditing(null);
